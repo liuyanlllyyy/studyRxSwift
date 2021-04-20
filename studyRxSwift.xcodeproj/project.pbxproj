@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		262F0FDB5CD19CA8C7F9905E /* Pods_studyRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9898AD4CC1E4E380B63F60 /* Pods_studyRxSwift.framework */; };
-		2C00AB3426289825009AEE07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00AB3326289825009AEE07 /* SceneDelegate.swift */; };
 		2C953FBE262881E90003C1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C953FBD262881E90003C1B3 /* AppDelegate.swift */; };
 		2C953FC2262881E90003C1B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C953FC1262881E90003C1B3 /* ViewController.swift */; };
 		2C953FC5262881E90003C1B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C953FC3262881E90003C1B3 /* Main.storyboard */; };
@@ -16,6 +15,14 @@
 		2C953FCA262881EA0003C1B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C953FC8262881EA0003C1B3 /* LaunchScreen.storyboard */; };
 		2C953FD5262881EA0003C1B3 /* studyRxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C953FD4262881EA0003C1B3 /* studyRxSwiftTests.swift */; };
 		2C953FE0262881EA0003C1B3 /* studyRxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C953FDF262881EA0003C1B3 /* studyRxSwiftUITests.swift */; };
+		658DC114262E6B2F00382130 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC113262E6B2E00382130 /* SceneDelegate.swift */; };
+		658DC11D262E7ED500382130 /* EasyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC11B262E7ED500382130 /* EasyViewController.swift */; };
+		658DC11E262E7ED500382130 /* EasyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658DC11C262E7ED500382130 /* EasyViewController.xib */; };
+		658DC124262EAFD000382130 /* EasyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC123262EAFD000382130 /* EasyModel.swift */; };
+		658DC12C262EB01100382130 /* EasyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC12B262EB01100382130 /* EasyViewModel.swift */; };
+		658DC13C262EBB2800382130 /* ObservaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC13A262EBB2800382130 /* ObservaleViewController.swift */; };
+		658DC13D262EBB2800382130 /* ObservaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658DC13B262EBB2800382130 /* ObservaleViewController.xib */; };
+		658DC145262EC2BC00382130 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC144262EC2BC00382130 /* UIBaseViewController.swift */; };
 		683F28DA96FF737EDCB5566C /* Pods_studyRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C6B7B38DF96617BA017CFC /* Pods_studyRxSwiftTests.framework */; };
 		FE57384AF049B8CEE322B66F /* Pods_studyRxSwift_studyRxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BC53E399FCCE401D6B6901 /* Pods_studyRxSwift_studyRxSwiftUITests.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C00AB3326289825009AEE07 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../../.Trash/SceneDelegate.swift; sourceTree = "<group>"; };
 		2C953FBA262881E90003C1B3 /* studyRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studyRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C953FBD262881E90003C1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C953FC1262881E90003C1B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,14 @@
 		47B9281B170E0C6442EE46B3 /* Pods-studyRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-studyRxSwiftTests/Pods-studyRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50C6B7B38DF96617BA017CFC /* Pods_studyRxSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_studyRxSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6451421469B9DBDEB68FAB78 /* Pods-studyRxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-studyRxSwiftTests/Pods-studyRxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		658DC113262E6B2E00382130 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		658DC11B262E7ED500382130 /* EasyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyViewController.swift; sourceTree = "<group>"; };
+		658DC11C262E7ED500382130 /* EasyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EasyViewController.xib; sourceTree = "<group>"; };
+		658DC123262EAFD000382130 /* EasyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyModel.swift; sourceTree = "<group>"; };
+		658DC12B262EB01100382130 /* EasyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyViewModel.swift; sourceTree = "<group>"; };
+		658DC13A262EBB2800382130 /* ObservaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservaleViewController.swift; sourceTree = "<group>"; };
+		658DC13B262EBB2800382130 /* ObservaleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObservaleViewController.xib; sourceTree = "<group>"; };
+		658DC144262EC2BC00382130 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		77FE82C5CE162E8E5EB43BB9 /* Pods-studyRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift.release.xcconfig"; path = "Target Support Files/Pods-studyRxSwift/Pods-studyRxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		AA15DB27A03E1182E866AAE8 /* Pods-studyRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift.debug.xcconfig"; path = "Target Support Files/Pods-studyRxSwift/Pods-studyRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		BC8C6A19E94992939DDCA06D /* Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-studyRxSwift-studyRxSwiftUITests/Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +145,10 @@
 			children = (
 				2C953FBD262881E90003C1B3 /* AppDelegate.swift */,
 				2C953FC1262881E90003C1B3 /* ViewController.swift */,
-				2C00AB3326289825009AEE07 /* SceneDelegate.swift */,
+				658DC139262EBAFF00382130 /* Observable */,
+				658DC122262EAFB700382130 /* tableView+MVVM */,
+				658DC113262E6B2E00382130 /* SceneDelegate.swift */,
+				658DC144262EC2BC00382130 /* UIBaseViewController.swift */,
 				2C953FC3262881E90003C1B3 /* Main.storyboard */,
 				2C953FC6262881EA0003C1B3 /* Assets.xcassets */,
 				2C953FC8262881EA0003C1B3 /* LaunchScreen.storyboard */,
@@ -167,6 +184,27 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		658DC122262EAFB700382130 /* tableView+MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				658DC11B262E7ED500382130 /* EasyViewController.swift */,
+				658DC11C262E7ED500382130 /* EasyViewController.xib */,
+				658DC123262EAFD000382130 /* EasyModel.swift */,
+				658DC12B262EB01100382130 /* EasyViewModel.swift */,
+			);
+			path = "tableView+MVVM";
+			sourceTree = "<group>";
+		};
+		658DC139262EBAFF00382130 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				658DC13A262EBB2800382130 /* ObservaleViewController.swift */,
+				658DC13B262EBB2800382130 /* ObservaleViewController.xib */,
+			);
+			name = Observable;
+			path = studyRxSwift/Observable;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -276,8 +314,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658DC11E262E7ED500382130 /* EasyViewController.xib in Resources */,
 				2C953FCA262881EA0003C1B3 /* LaunchScreen.storyboard in Resources */,
 				2C953FC7262881EA0003C1B3 /* Assets.xcassets in Resources */,
+				658DC13D262EBB2800382130 /* ObservaleViewController.xib in Resources */,
 				2C953FC5262881E90003C1B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,9 +446,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658DC11D262E7ED500382130 /* EasyViewController.swift in Sources */,
+				658DC13C262EBB2800382130 /* ObservaleViewController.swift in Sources */,
 				2C953FC2262881E90003C1B3 /* ViewController.swift in Sources */,
+				658DC124262EAFD000382130 /* EasyModel.swift in Sources */,
 				2C953FBE262881E90003C1B3 /* AppDelegate.swift in Sources */,
-				2C00AB3426289825009AEE07 /* SceneDelegate.swift in Sources */,
+				658DC145262EC2BC00382130 /* UIBaseViewController.swift in Sources */,
+				658DC12C262EB01100382130 /* EasyViewModel.swift in Sources */,
+				658DC114262E6B2F00382130 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

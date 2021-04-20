@@ -8,13 +8,49 @@
 import UIKit
 import RxSwift
 import RxCocoa
+
+struct DataModel {
+    let className: UIViewController.Type?
+    let name: String?
+}
+
+struct DataListModel {
+    let  data = Observable.just([
+        DataModel(className: EasyViewController.self,name: "tableview"),
+        DataModel(className: ObservaleViewController.self,name: "创建Observale"),
+    ])
+    
+
+}
 class ViewController: UIViewController {
 
+  
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    let disposeBag = DisposeBag()
+    
+    let dataList = DataListModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        dataList.data
+            .bind(to: tableView.rx.items(cellIdentifier:"myCell")) { _, model, cell in
+                cell.textLabel?.text = model.name
+            }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(DataModel.self).subscribe({ event in
+//            self.present(event.element!.className as! UIViewController, animated: true, completion: {
+//            })
+           
+            let nextClass = event.element?.className
+            if let nextClass = nextClass{
+                let nextVC = nextClass.init()
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
+        }).disposed(by: disposeBag)
     }
-
 
 }
 
