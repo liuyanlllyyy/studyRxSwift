@@ -18,6 +18,8 @@ struct DataListModel {
     let  data = Observable.just([
         DataModel(className: EasyViewController.self,name: "tableview"),
         DataModel(className: ObservaleViewController.self,name: "创建Observale"),
+        DataModel(className: SubscribeViewController.self,name: "订阅Subscribe "),
+        DataModel(className: SpecialViewController.self,name: "特征序列SpecialObservale"),
     ])
     
 

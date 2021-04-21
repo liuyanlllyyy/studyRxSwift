@@ -183,7 +183,7 @@ extension ObservaleViewController:UITableViewDelegate,UITableViewDataSource{
                     print(event)
                 }
                 //.disposed(by: disposeBag)
-
+            
             
 
            

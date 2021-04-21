@@ -23,6 +23,9 @@
 		658DC13C262EBB2800382130 /* ObservaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC13A262EBB2800382130 /* ObservaleViewController.swift */; };
 		658DC13D262EBB2800382130 /* ObservaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658DC13B262EBB2800382130 /* ObservaleViewController.xib */; };
 		658DC145262EC2BC00382130 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC144262EC2BC00382130 /* UIBaseViewController.swift */; };
+		658DC14B262FC23D00382130 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC14A262FC23D00382130 /* SubscribeViewController.swift */; };
+		658DC152262FC45600382130 /* SpecialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DC150262FC45600382130 /* SpecialViewController.swift */; };
+		658DC153262FC45600382130 /* SpecialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658DC151262FC45600382130 /* SpecialViewController.xib */; };
 		683F28DA96FF737EDCB5566C /* Pods_studyRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C6B7B38DF96617BA017CFC /* Pods_studyRxSwiftTests.framework */; };
 		FE57384AF049B8CEE322B66F /* Pods_studyRxSwift_studyRxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BC53E399FCCE401D6B6901 /* Pods_studyRxSwift_studyRxSwiftUITests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,9 @@
 		658DC13A262EBB2800382130 /* ObservaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservaleViewController.swift; sourceTree = "<group>"; };
 		658DC13B262EBB2800382130 /* ObservaleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObservaleViewController.xib; sourceTree = "<group>"; };
 		658DC144262EC2BC00382130 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		658DC14A262FC23D00382130 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
+		658DC150262FC45600382130 /* SpecialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialViewController.swift; sourceTree = "<group>"; };
+		658DC151262FC45600382130 /* SpecialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialViewController.xib; sourceTree = "<group>"; };
 		77FE82C5CE162E8E5EB43BB9 /* Pods-studyRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift.release.xcconfig"; path = "Target Support Files/Pods-studyRxSwift/Pods-studyRxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		AA15DB27A03E1182E866AAE8 /* Pods-studyRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift.debug.xcconfig"; path = "Target Support Files/Pods-studyRxSwift/Pods-studyRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		BC8C6A19E94992939DDCA06D /* Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-studyRxSwift-studyRxSwiftUITests/Pods-studyRxSwift-studyRxSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,8 +149,10 @@
 		2C953FBC262881E90003C1B3 /* studyRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				658DC149262FC13E00382130 /* Subscribe */,
 				2C953FBD262881E90003C1B3 /* AppDelegate.swift */,
 				2C953FC1262881E90003C1B3 /* ViewController.swift */,
+				658DC14F262FC41700382130 /* 特征序列 */,
 				658DC139262EBAFF00382130 /* Observable */,
 				658DC122262EAFB700382130 /* tableView+MVVM */,
 				658DC113262E6B2E00382130 /* SceneDelegate.swift */,
@@ -205,6 +213,23 @@
 			name = Observable;
 			path = studyRxSwift/Observable;
 			sourceTree = SOURCE_ROOT;
+		};
+		658DC149262FC13E00382130 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				658DC14A262FC23D00382130 /* SubscribeViewController.swift */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		658DC14F262FC41700382130 /* 特征序列 */ = {
+			isa = PBXGroup;
+			children = (
+				658DC150262FC45600382130 /* SpecialViewController.swift */,
+				658DC151262FC45600382130 /* SpecialViewController.xib */,
+			);
+			path = "特征序列";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -314,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658DC153262FC45600382130 /* SpecialViewController.xib in Resources */,
 				658DC11E262E7ED500382130 /* EasyViewController.xib in Resources */,
 				2C953FCA262881EA0003C1B3 /* LaunchScreen.storyboard in Resources */,
 				2C953FC7262881EA0003C1B3 /* Assets.xcassets in Resources */,
@@ -446,9 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658DC14B262FC23D00382130 /* SubscribeViewController.swift in Sources */,
 				658DC11D262E7ED500382130 /* EasyViewController.swift in Sources */,
 				658DC13C262EBB2800382130 /* ObservaleViewController.swift in Sources */,
 				2C953FC2262881E90003C1B3 /* ViewController.swift in Sources */,
+				658DC152262FC45600382130 /* SpecialViewController.swift in Sources */,
 				658DC124262EAFD000382130 /* EasyModel.swift in Sources */,
 				2C953FBE262881E90003C1B3 /* AppDelegate.swift in Sources */,
 				658DC145262EC2BC00382130 /* UIBaseViewController.swift in Sources */,
