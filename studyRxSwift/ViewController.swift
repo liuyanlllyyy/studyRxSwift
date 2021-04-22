@@ -16,10 +16,11 @@ struct DataModel {
 
 struct DataListModel {
     let  data = Observable.just([
-        DataModel(className: EasyViewController.self,name: "tableview"),
-        DataModel(className: ObservaleViewController.self,name: "创建Observale"),
+        DataModel(className: EasyViewController.self,name: "tableview+MVVM思路"),
+        DataModel(className: ObservaleViewController.self,name: "创建Observale被观察者"),
         DataModel(className: SubscribeViewController.self,name: "订阅Subscribe "),
-        DataModel(className: SpecialViewController.self,name: "特征序列SpecialObservale"),
+        DataModel(className: SpecialViewController.self,name: "特征序列Observale这些序列都是由普通序列封装 "),
+        DataModel(className: SchedulerViewController.self,name: "调度者 - scheduler."),
     ])
     
 

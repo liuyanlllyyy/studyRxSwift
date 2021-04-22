@@ -19,6 +19,7 @@ class SubscribeViewController: UIBaseViewController {
         // 可以通过不同的block回调处理不同类型的event事件 event里的参数打印出来
        _ = ob.subscribe { (event) in
             print(event)
+        self.showMsgbox(_message: event)
         } onError: { (error) in
             print(error)
         } onCompleted: {

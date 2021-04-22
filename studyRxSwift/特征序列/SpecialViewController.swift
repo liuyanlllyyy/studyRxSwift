@@ -11,37 +11,6 @@ import RxCocoa
 class SpecialViewController: UIBaseViewController {
 
     @IBOutlet weak var myTabView: UITableView!
-    
-    let  data:[NameModel] =  [
-        NameModel(name: "Single特征序列"),
-        NameModel(name: "Observable转换为 Single"),
-        NameModel(name: "Completable特征序列"),
-        NameModel(name: "Driver特征序列"),
-        NameModel(name: "Signal特征序列"),
-        
-    ]
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        myTabView.delegate = self
-        myTabView.dataSource = self
-       
-        // Do any additional setup after loading the view.
-    }
-    //将数据缓存到本地
-    func cacheLocally() -> Completable {
-        return Completable.create { completable in
-            //将数据缓存到本地（这里掠过具体的业务代码，随机成功或失败）
-            let success = (arc4random() % 2 == 0)
-            
-            guard success else {
-                completable(.error("error"))
-                return Disposables.create {}
-            }
-            
-            completable(.completed)
-            return Disposables.create {}
-        }
-    }
     /**
      
      创建 Single 和创建 Observable 非常相似。下面代码我们定义一个用于生成网络请求 Single 的函数
@@ -75,6 +44,54 @@ class SpecialViewController: UIBaseViewController {
             return Disposables.create { task.cancel() }
     }
 }
+   
+    let  data:[NameModel] =  [
+        NameModel(name: "Single特征序列"),
+        NameModel(name: "Observable转换为 Single"),
+        NameModel(name: "Completable特征序列"),
+        NameModel(name: "Maybe特征序列"),
+        NameModel(name: "Driver特征序列,跳转新页面"),
+        NameModel(name: "ControlProperty特征序列,跳转新页面"),
+        
+    ]
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        myTabView.delegate = self
+        myTabView.dataSource = self
+       
+        // Do any additional setup after loading the view.
+    }
+    //将数据缓存到本地     Completable
+    func cacheLocally() -> Completable {
+        return Completable.create { completable in
+            //将数据缓存到本地（这里掠过具体的业务代码，随机成功或失败）
+            let success = (arc4random() % 2 == 0)
+            
+            guard success else {
+                completable(.error(DataError.cantParseJSON))
+                return Disposables.create {}
+            }
+            
+            completable(.completed)
+            return Disposables.create {}
+        }
+    }
+    //创建 Maybe 和创建 Observable 同样非常相似：
+    func generateString() -> Maybe<String> {
+        return Maybe<String>.create { maybe in
+            
+            //成功并发出一个元素
+            maybe(.success("hangge.com"))
+            
+            //成功但不发出任何元素
+            maybe(.completed)
+            
+            //失败
+            maybe(.error(DataError.cantParseJSON))
+            
+            return Disposables.create {}
+        }
+    }
    
     func single(){
         //获取第0个频道的歌曲信息
@@ -154,33 +171,98 @@ extension SpecialViewController:UITableViewDelegate,UITableViewDataSource{
             Observable.of("1")
                 .asSingle()
                 .subscribe(onSuccess: { json in
-                    print("success时候的结果: ", json)
+                    print("asSingle()success时候的结果: ", json)
                 }, onFailure: { error in
                     print("发生错误: ", error)
                 })
                 .disposed(by: disposeBag)
             
         case 2:
-          //  3. of() 创建一个新的可观察实例  这个方法可以接受可变数量的参数 （一定是要同类型）
-            print("********of********")
+          // //        Completable 是 Observable 的另外一个版本。不像 Observable 可以发出多个元素，它要么只能产生一个 completed 事件，要么产生一个 error 事件。
+            //
+            //        不会发出任何元素
+            //        只会发出一个 completed 事件或者一个 error 事件
+            //        不会共享状态变化
+            //        使用场景：Completable 和 Observable<Void> 有点类似。适用于那些只关心任务是否完成，而不需要在意任务返回值的情况。比如：在程序退出时将一些数据缓存到本地文件，供下次启动时加载。像这种情况我们只关心缓存是否成功。
+            //        同样RXSwift也是提供了一个枚举CompletableEvent
+            //        .completed：用于产生完成事件
+            //        .error：用于产生一个错误
+            print("********  Completable ********")
+            //将数据缓存到本地
+           _ = Completable.create{  completable in
+                let success = (arc4random() % 2 == 0)
+                guard success else{
+                    completable(.error(DataError.cantParseJSON))
+                    return Disposables.create {}
+                }
+                completable(.completed)
+            return Disposables.create {}
+            }.subscribe(
+                { completable in
+                    switch completable {
+                    case .completed:
+                        print("保存成功!Completable")
+                    case .error(let error):
+                        print("保存失败: \(error.localizedDescription)")
+                    }
+                }).disposed(by: disposeBag)
+               
+            
+         
+          
            
         case 3:
-           // 4. from 将可选序列转换为可观察序列。 从集合中获取序列:数组,集合,set 获取序列 - 有可选项处理 - 更安全
-            print("********from********")
-            //MARK:  of
-           
-        case 4:
-            print("********generate********")
-           
-        case 5:
-            print("********interval********")
-            //create() 该方法接受一个 闭包形式的参数，任务是对每一个过来的订阅进行处理。
-           
-        
-        case 6:
-          //  interval 返回一个可观察序列，该序列在每个周期之后生成一个值，使用指定的调度程序运行计时器并发送观察者消息。
-            print("********interval********")
+            /**
+                 Maybe 同样是 Observable 的另外一个版本。它介于 Single 和 Completable 之间，它要么只能发出一个元素，要么产生一个 completed 事件，要么产生一个 error 事件。
+             
+                 发出一个元素、或者一个 completed 事件、或者一个 error 事件
+                 不会共享状态变化
+                 使用场景：Maybe 适合那种可能需要发出一个元素，又可能不需要发出的情况。
+
+                 为方便使用，RxSwift 为 Maybe 订阅提供了一个枚举（MaybeEvent）：
+             
+                 .success：里包含该 Maybe 的一个元素值
+                 .completed：用于产生完成事件
+                 .error：用于产生一个错误
+                 我们可以通过调用 Observable 序列的 .asMaybe()方法，将它转换为 Maybe。
+             */
+            print("********Maybee********")
             
+            generateString()
+                .subscribe(onSuccess: { element in
+                    print("执行完毕，并获得元素：\(element)")
+                }, onError: {
+                    error in
+                    print("执行失败: \(error.localizedDescription)")
+                },onCompleted: {
+                    print("执行完毕，且没有任何元素。")
+                })
+                .disposed(by: disposeBag)
+        case 4:
+            print("******** Driver ********")
+          /*  什么是 Driver
+            Driver 是一个精心准备的特征序列。它主要是为了简化 UI 层的代码，驱动 UI 的序列所具有的特征。
+            特征：
+            • 不会产生 error 事件
+            • 一定在 MainScheduler 监听（主线程监听）
+            • 共享附加作用
+           */
+            let Vc = DriverViewController()
+            self.navigationController?.pushViewController(Vc, animated: true)
+        case 5:
+            print("******** ControlPropertyViewController ********")
+            /**
+             (1）ControlProperty 是专门用来描述 UI 控件属性，拥有该类型的属性都是被观察者（Observable）。
+             （2）ControlProperty 具有以下特征：
+             
+             不会产生 error 事件
+             一定在 MainScheduler 订阅（主线程订阅）
+             一定在 MainScheduler 监听（主线程监听）
+             共享状态变化
+             */
+            let Vc = ControlPropertyViewController()
+            self.navigationController?.pushViewController(Vc, animated: true)
+           
             
 
            

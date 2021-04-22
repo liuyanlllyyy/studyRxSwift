@@ -130,7 +130,7 @@ extension ObservaleViewController:UITableViewDelegate,UITableViewDataSource{
         case 3:
            // 4. from 将可选序列转换为可观察序列。 从集合中获取序列:数组,集合,set 获取序列 - 有可选项处理 - 更安全
             print("********from********")
-            //MARK:  of
+            //MARK:  from
             Observable<[String]>.from(optional: ["test01","test02"])
                 .subscribe { (string) in
                     print(string)
@@ -158,6 +158,7 @@ extension ObservaleViewController:UITableViewDelegate,UITableViewDataSource{
                 })
                 .disposed(by: disposeBag)
         case 5:
+            print("********icreate********")
             //create() 该方法接受一个 闭包形式的参数，任务是对每一个过来的订阅进行处理。
             let observable = Observable<String>.create{observer in
                 //对订阅者发出了.next事件，且携带了一个数据"net 数据"
@@ -182,7 +183,7 @@ extension ObservaleViewController:UITableViewDelegate,UITableViewDataSource{
                 .subscribe { (event) in
                     print(event)
                 }
-                //.disposed(by: disposeBag)
+                .disposed(by: disposeBag)
             
             
 
