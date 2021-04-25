@@ -16,34 +16,6 @@ class SpecialViewController: UIBaseViewController {
      创建 Single 和创建 Observable 非常相似。下面代码我们定义一个用于生成网络请求 Single 的函数
      获取豆瓣某频道下的歌曲信息
      */
-    public func getSinglePlayList(_ channel:String) ->Single<[String:Any]>{
-        return Single<[String: Any]>.create {  singleSpecial in
-            let url = "https://douban.fm/j/mine/playlist?"
-                + "type=n&channel=\(channel)&from=mainsite"
-            let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
-                if let error = error {
-                    print("error*************" )
-                    singleSpecial(.failure(error))
-                    return
-                }
-                
-                guard let data = data,
-                    let json = try? JSONSerialization.jsonObject(with: data,
-                                                                 options: .mutableLeaves),
-                    let result = json as? [String: Any] else {
-                    singleSpecial(.failure(DataError.cantParseJSON))
-                    print("json解析error*************" )
-                        return
-                }
-                
-                singleSpecial(.success(result))
-            }
-            
-            task.resume()
-            
-            return Disposables.create { task.cancel() }
-    }
-}
    
     let  data:[NameModel] =  [
         NameModel(name: "Single特征序列"),

@@ -4,6 +4,8 @@
 //
 //  Created by 刘衍 on 2021/4/22.
 //
+
+
 /**
      （1）调度器（Schedulers）是 RxSwift 实现多线程的核心模块，它主要用于控制任务在哪个线程或队列运行。
      （2）RxSwift 内置了如下几种 Scheduler：
@@ -22,11 +24,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
-class SchedulerViewController: UIViewController {
+
+class SchedulerViewController: UIBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getSinglePlayList("0")
+                .subscribe(onSuccess: { (json) in
+                    //再到主线程显示结果
+                    DispatchQueue.main.async {
+                        //                        self.data = json[...]
+                        print("json:",json)
+                    }
+                }, onFailure: { (error) in
+                    
+                })
+        }
         // Do any additional setup after loading the view.
     }
     
